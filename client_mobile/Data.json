@@ -1,0 +1,107 @@
+{
+
+    "actions": {
+
+        "Meteo": {
+
+            "actions": {"Forecast": [], "Alert": [], "BadWeather": [] },
+
+            "inputs": ["city"],
+
+            "reaction": {"Discord": [], "Slack": []}
+
+        },
+
+        "Covid": {
+
+            "actions": {"News": []},
+
+            "inputs": [],
+
+            "reaction": {"Discord": [], "Slack": []}
+
+        },
+
+        "Twitch": {
+
+            "actions": { "Live":[], "ImLive":[] },
+
+            "inputs": ["streamer", "OAuth"],
+
+            "reaction": {"Discord": [], "Slack":[] }
+
+        },
+
+        "Github": {
+
+            "actions": {"Star" : [], "Issue" : [], "PullRequest" : [] },
+
+            "inputs": ["token", "username", "repo"],
+
+            "reaction": {"Discord":[], "Slack": []}
+
+        },
+
+        "Coinbase": {
+
+            "actions": {"Value": [] },
+
+            "inputs": ["crypto", "value"],
+
+            "reaction": {"Discord": [], "Slack": []}
+
+        },
+
+        "Scheduler": {
+
+            "actions": {"Everyday": [], "EveryX": []},
+
+            "inputs": ["interval", "hour"],
+
+            "reaction": {"Discord": [], "Slack": []}
+
+        },
+
+        "Rss": {
+
+            "actions": {"Feed": []},
+
+            "inputs": ["url"],
+
+            "reaction": {"Discord": [], "Slack": [] }
+
+        },
+
+        "DiscordBot": {
+
+            "actions": {"DM": []},
+
+            "inputs": ["token"],
+
+            "reaction": { "Discord": [], "Slack" : [] }
+
+        }
+
+    },
+
+    "reactions": {
+
+        "Slack": {
+
+            "reactions": {"Webhook": []},
+
+            "inputs": ["channel"]
+
+        },
+
+        "Discord": {
+
+            "reactions": {"Channel": {}, "DM": [], "Webhook":[] },
+
+            "inputs": ["id", "url"]
+
+        }
+
+    }
+
+}

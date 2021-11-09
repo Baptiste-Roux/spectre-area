@@ -1,0 +1,64 @@
+version: '3.4'
+services:
+  db:
+    container_name: area-db
+    image: postgres:alpine
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: area-db
+      POSTGRES_USER: blueface
+      POSTGRES_PASSWORD: fuckherrightindapussy
+    networks:
+      - backend
+    restart: always
+
+  server:
+    container_name: area-server
+    build: ./server
+    image: spectre-area/server
+    environment:
+      DATABASE_URL: postgres://blueface@db/area-db
+    networks:
+      - backend
+    ports:
+      - 8080:3000
+    depends_on:
+      - db
+    volumes:
+      - ./server:/app
+    restart: always
+
+  client_mobile:
+    container_name: area-mobile
+    build: ./client_mobile
+    image: spectre-area/client_mobile
+    volumes:
+      - apk:/app:rw
+
+  client_web:
+    container_name: area-web
+    build: ./client_web
+    image: spectre-area/client_web
+    ports:
+      - 8081:3000
+    volumes:
+      - ./client_web:/app
+      - /app/node_modules
+      - apk:/app/public/:ro
+    networks:
+      - backend
+    depends_on:
+      - client_mobile
+      - server
+    restart: always
+
+volumes:
+  db_data:
+    name: area-data
+  apk:
+    name: area-apk
+
+networks:
+  backend:
+    name: area-backend-network

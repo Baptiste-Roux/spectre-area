@@ -1,0 +1,27 @@
+{
+  "name": "learn-starter",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^5.15.2",
+    "@fortawesome/react-fontawesome": "^0.1.14",
+    "axios": "^0.21.1",
+    "bootstrap": "^4.6.0",
+    "fireworks": "^2.2.7",
+    "jsonwebtoken": "^8.5.1",
+    "next": "^10.0.0",
+    "pizzly-js": "^0.2.8",
+    "react": "17.0.1",
+    "react-bootstrap": "^1.4.3",
+    "react-dom": "17.0.1",
+    "react-google-login": "^5.2.2",
+    "react-modal": "^3.12.1",
+    "request": "^2.88.2",
+    "sweetalert2": "^10.15.5"
+  }
+}
